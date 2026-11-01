@@ -57,10 +57,21 @@ class TestHandCalculated(unittest.TestCase):
         requests = [req(0, 0, 5, 8), req(1, 0, 9, 12)]
         self.assertEqual(waits(cars(5), requests, [0, 0]), {0: 0, 1: 18})
 
+    def test_c3_alight_and_board_same_floor_one_stop(self):
+        # 9층에서 P0 하차(t=21)와 같은 방향 P1 탑승을 정차 1회로 → P1 대기 21초 (두 번 서면 26초)
+        requests = [req(0, 0, 5, 9), req(1, 0, 9, 15)]
+        self.assertEqual(waits(cars(1), requests, [0, 0]), {0: 8, 1: 21})
+
     def test_c4_turn_within_same_stop(self):
         # 9층 t=21 마지막 승객 하차, 9층 하행 승객도 같은 정차에서 탑승 → 대기 21초 (정차 끝나고 태우면 26초)
         requests = [req(0, 0, 5, 9), req(1, 0, 9, 3)]
         self.assertEqual(waits(cars(1), requests, [0, 0]), {0: 8, 1: 21})
+
+    def test_c5_request_and_arrival_same_second(self):
+        # 5층 가는 길에 t=4 3층 도착. 같은 초에 3층 상행 요청 → 승객 먼저 받아 정차, P1 대기 0초
+        # (엘리베이터를 먼저 처리하면 3층을 지나쳐 P1이 한참 뒤에 탐). P0는 정차 5초만큼 늦은 13초
+        requests = [req(0, 0, 5, 9), req(1, 4, 3, 7)]
+        self.assertEqual(waits(cars(1), requests, [0, 0]), {0: 13, 1: 0})
 
     def test_c9_idle_goes_to_nearest_task(self):
         # 10층 IDLE, 7층·12층 요청 → 12층(2층 차) 먼저: P1 4초, 15층 t=15 정차 후 DOWN, 7층 t=36

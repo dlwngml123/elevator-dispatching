@@ -3,7 +3,8 @@
 - 요청은 도착 순서대로, 그 시점까지 배정된 요청만 보고 결정한다 (온라인).
 - 위치는 노션 5장 옵션 1: 시뮬레이터가 주는 시각별 위치, 이동 중이면 마지막으로 떠난 층.
 - 거리만 보고 방향·작업량은 보지 않는다. 거리가 같으면 id가 작은 엘리베이터.
-- 시간복잡도: 시뮬레이션 N회 (state_at 한 번 = 시뮬레이션 한 번)
+- 시뮬레이터의 점진 모드(advance_to → state → assign)를 써서 시뮬레이션을 한 번만 돌린다.
+- 시간복잡도: 시뮬레이션 1회 + 요청마다 엘리베이터 M대 비교 = O(T + N·M)
 """
 
 import os
@@ -11,28 +12,23 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from simulator import state_at
-
-
-def arrival_order(requests):
-    return sorted(range(len(requests)), key=lambda i: (requests[i]["time"], requests[i]["id"]))
+from simulator import Simulator
 
 
 def nearest_car(config, elevators, requests):
+    sim = Simulator(config, elevators, requests)
     assignment = [None] * len(requests)
-    for i in arrival_order(requests):
-        req = requests[i]
-        states = state_at(config, elevators, requests, assignment, req["time"])
+    for i, req in enumerate(requests):          # 요청은 도착 시각 순으로 들어온다
+        sim.advance_to(req["time"])             # 요청 i가 도착하기 직전까지 진행
+        states = sim.state()
         best = min(states, key=lambda s: (abs(s["floor"] - req["origin"]), s["id"]))
         assignment[i] = best["id"]
+        sim.assign(i, best["id"])
     return assignment
 
 
 if __name__ == "__main__":
     # 사용 예: 알고리즘을 부르고, 결과를 시뮬레이터로 평가한다
-    import os
-    import sys
-    sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     from simulator import simulate
 
     config = {"num_floors": 20, "floor_time": 2, "stop_time": 5}

@@ -15,14 +15,12 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from simulator import simulate
 
-from algorithms.nearest_car import arrival_order
-
 
 def ewt_greedy(config, elevators, requests, objective="total"):
     if objective not in ("total", "new"):
         raise ValueError("objective는 'total' 또는 'new'")
     assignment = [None] * len(requests)
-    for i in arrival_order(requests):
+    for i in range(len(requests)):          # 요청은 도착 시각 순으로 들어온다
         req_id = requests[i]["id"]
         best_key, best_car = None, None
         for car in sorted(e["id"] for e in elevators):
