@@ -73,6 +73,17 @@ class TestHandCalculated(unittest.TestCase):
         requests = [req(0, 0, 5, 9), req(1, 4, 3, 7)]
         self.assertEqual(waits(cars(1), requests, [0, 0]), {0: 13, 1: 0})
 
+    def test_c7_destination_not_a_stop_before_boarding(self):
+        # 10층 IDLE, 14층→9층 요청. 탑승 전 목적층 9층이 할 일이면 더 가까운 9층으로 먼저 가 버림(대기 17초)
+        # 목적층은 탑승 후에만 추가되므로 14층으로 바로 올라감 → 대기 8초
+        self.assertEqual(waits(cars(10), [req(0, 0, 14, 9)], [0]), {0: 8})
+
+    def test_c8_no_decision_between_floors(self):
+        # 1층에서 5층 향해 출발, t=1(1~2층 사이)에 1층 상행 요청. 층 사이에서 되돌아가면 P1 대기 1초
+        # 2층 도착 후 판단 → 앞에 할 일 있어 계속 진행, 9층까지 갔다가 내려와 t=42에 1층 → 대기 41초
+        requests = [req(0, 0, 5, 9), req(1, 1, 1, 3)]
+        self.assertEqual(waits(cars(1), requests, [0, 0]), {0: 8, 1: 41})
+
     def test_c9_idle_goes_to_nearest_task(self):
         # 10층 IDLE, 7층·12층 요청 → 12층(2층 차) 먼저: P1 4초, 15층 t=15 정차 후 DOWN, 7층 t=36
         requests = [req(0, 0, 7, 2), req(1, 0, 12, 15)]
