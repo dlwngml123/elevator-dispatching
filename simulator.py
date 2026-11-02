@@ -111,7 +111,7 @@ class Simulator:
             raise SimulationError("assignment length must equal number of requests")
         m = len(elevators)
         for i, a in enumerate(assignment):
-            if a is not None and not (0 <= a < m):
+            if a is not None and not (isinstance(a, int) and 0 <= a < m):
                 raise SimulationError(f"assignment[{i}]={a} is not an elevator id")
         self.assignment = list(assignment)
 
@@ -127,7 +127,15 @@ class Simulator:
 
     # ------------------------------------------------------------------ 진행
     def assign(self, i, elevator_id):
-        """아직 공개되지 않은 요청 i의 배정을 정한다 (점진 모드)."""
+        """아직 공개되지 않은 요청 i의 배정을 정한다 (점진 모드).
+
+        처음 배정표와 같은 기준으로 검사한다: 요청 id는 0..N-1, 엘리베이터 id는 0..M-1 또는 None.
+        """
+        if not (isinstance(i, int) and 0 <= i < self.n):
+            raise SimulationError(f"request id {i} is out of range 0..{self.n - 1}")
+        if elevator_id is not None and not (isinstance(elevator_id, int)
+                                            and 0 <= elevator_id < len(self.elevs)):
+            raise SimulationError(f"elevator id {elevator_id} is out of range 0..{len(self.elevs) - 1}")
         if i < self.next_req:
             raise SimulationError(f"request {i} was already revealed at t={self.r_time[i]}")
         self.assignment[i] = elevator_id
