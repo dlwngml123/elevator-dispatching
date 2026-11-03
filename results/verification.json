@@ -1,0 +1,48 @@
+{
+  "ab_originals": {
+    "README.md": {
+      "source_zip": "elevator-dispatching-main.zip",
+      "sha256": "8416efad0f28d546646f7b4cd8aa67855e90c5646c4b2c6c5c0976ed751c84a2"
+    },
+    "algorithms/round_robin.py": {
+      "source_zip": "elevator-dispatching-main.zip",
+      "sha256": "a79205bafd169dce072b795a5a3c7c4d14e84e55fbc54e625b71bdcc9ae1f613"
+    },
+    "simulator.py": {
+      "source_zip": "elevator-dispatching-main.zip",
+      "sha256": "14ecb3cf9484a126188fab2cb1e86c7e01405b0d339c18665101d911e4032692"
+    },
+    "algorithms/ewt_greedy.py": {
+      "source_zip": "elevator-dispatching-feature-part-b (1).zip",
+      "sha256": "2a4da00469efe6d3b33d641d7b05d69644d75caeb242a383670fdbe3088cef94"
+    },
+    "algorithms/local_search.py": {
+      "source_zip": "elevator-dispatching-feature-part-b (1).zip",
+      "sha256": "051e1c24e44c92979312c354dd6a09b52d7c979dd1e96a4d0c766064ec685f52"
+    },
+    "algorithms/nearest_car.py": {
+      "source_zip": "elevator-dispatching-feature-part-b (1).zip",
+      "sha256": "3d493149e74865e8265642ad0a9608ff06c0e667a2b8ddda439daf81ce4e413d"
+    },
+    "tests/_path.py": {
+      "source_zip": "elevator-dispatching-feature-part-b (1).zip",
+      "sha256": "4c41d3d6d6bb11dad06eb6369d00276bf9fef5b30feb3fde87cb669c44cf2a5e"
+    },
+    "tests/test_algorithms.py": {
+      "source_zip": "elevator-dispatching-feature-part-b (1).zip",
+      "sha256": "ece4ce6190983ec9d81839de38466ed6779f83d2559bb201160e797a5f1f97f2"
+    },
+    "tests/test_simulator.py": {
+      "source_zip": "elevator-dispatching-feature-part-b (1).zip",
+      "sha256": "aeb359e416cddd2c0534be20cec4ae1d6bbb7aa47ea263062ddc5df78cc813d5"
+    }
+  },
+  "ab_tests_passed": 21,
+  "c_tests_passed": 15,
+  "demo": {
+    "rows": 72,
+    "ok": 66,
+    "skipped": 6,
+    "plots": 8
+  }
+}
