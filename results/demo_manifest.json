@@ -1,0 +1,30 @@
+{
+  "python": "3.12.4 (v3.12.4:8e8a4baf65, Jun  6 2024, 17:33:18) [Clang 13.0.0 (clang-1300.0.29.30)]",
+  "step": "tick",
+  "generation": {
+    "num_floors": 20,
+    "num_elevators": 3,
+    "initial_floors": null,
+    "floor_time": 2,
+    "stop_time": 5,
+    "arrival_max": 10,
+    "peak_probability": 0.8
+  },
+  "n": [
+    4,
+    6,
+    10
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "scenarios": [
+    "normal",
+    "peak"
+  ],
+  "max_assignments": 1000,
+  "runtime_definition": "algorithm call only; internal simulation included; final scoring excluded",
+  "gap_definition": "(avg_wait - optimal_avg_wait) / optimal_avg_wait; ratio, not percent"
+}
