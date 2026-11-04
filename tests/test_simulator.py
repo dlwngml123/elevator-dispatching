@@ -26,8 +26,8 @@ class TestHandCalculated(unittest.TestCase):
         self.assertEqual(result["wait_times"], {0: 8, 1: 30})
         self.assertEqual(result["avg_wait"], 19)
 
-    def test_passenger_arrives_later(self):
-        # 규칙 5 + C6: t=10에 요청 → 그때 출발, 1→3층 4초 → 대기 4초 (미리 가 있으면 0초)
+    def test_c6_task_starts_only_at_request_time(self):
+        # 규칙 5 + C6: t=10에 요청 → 그때 출발, 1→3층 4초 → 대기 4초 (미리 마중 가 있으면 0초)
         self.assertEqual(waits(cars(1), [req(0, 10, 3, 5)], [0]), {0: 4})
 
     def test_two_passengers_same_floor_one_stop(self):

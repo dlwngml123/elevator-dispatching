@@ -1,0 +1,150 @@
+{
+  "config": {
+    "num_floors": 20,
+    "floor_time": 2,
+    "stop_time": 5
+  },
+  "elevators": [
+    {
+      "id": 0,
+      "floor": 1
+    },
+    {
+      "id": 1,
+      "floor": 10
+    },
+    {
+      "id": 2,
+      "floor": 20
+    }
+  ],
+  "requests": [
+    {
+      "id": 0,
+      "time": 3,
+      "origin": 10,
+      "dest": 4
+    },
+    {
+      "id": 1,
+      "time": 9,
+      "origin": 16,
+      "dest": 5
+    },
+    {
+      "id": 2,
+      "time": 10,
+      "origin": 3,
+      "dest": 1
+    },
+    {
+      "id": 3,
+      "time": 16,
+      "origin": 18,
+      "dest": 10
+    },
+    {
+      "id": 4,
+      "time": 16,
+      "origin": 8,
+      "dest": 17
+    },
+    {
+      "id": 5,
+      "time": 24,
+      "origin": 12,
+      "dest": 9
+    },
+    {
+      "id": 6,
+      "time": 26,
+      "origin": 4,
+      "dest": 9
+    },
+    {
+      "id": 7,
+      "time": 29,
+      "origin": 1,
+      "dest": 9
+    },
+    {
+      "id": 8,
+      "time": 33,
+      "origin": 7,
+      "dest": 6
+    },
+    {
+      "id": 9,
+      "time": 37,
+      "origin": 10,
+      "dest": 12
+    },
+    {
+      "id": 10,
+      "time": 38,
+      "origin": 20,
+      "dest": 11
+    },
+    {
+      "id": 11,
+      "time": 48,
+      "origin": 13,
+      "dest": 17
+    },
+    {
+      "id": 12,
+      "time": 51,
+      "origin": 6,
+      "dest": 8
+    },
+    {
+      "id": 13,
+      "time": 58,
+      "origin": 9,
+      "dest": 3
+    },
+    {
+      "id": 14,
+      "time": 66,
+      "origin": 10,
+      "dest": 1
+    },
+    {
+      "id": 15,
+      "time": 70,
+      "origin": 19,
+      "dest": 10
+    },
+    {
+      "id": 16,
+      "time": 78,
+      "origin": 7,
+      "dest": 14
+    },
+    {
+      "id": 17,
+      "time": 84,
+      "origin": 20,
+      "dest": 10
+    },
+    {
+      "id": 18,
+      "time": 90,
+      "origin": 15,
+      "dest": 6
+    },
+    {
+      "id": 19,
+      "time": 93,
+      "origin": 10,
+      "dest": 9
+    }
+  ],
+  "metadata": {
+    "scenario": "normal",
+    "seed": 4,
+    "n": 20,
+    "arrival_max": 10,
+    "peak_probability": 0.8
+  }
+}

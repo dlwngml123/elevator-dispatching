@@ -1,0 +1,54 @@
+{
+  "config": {
+    "num_floors": 20,
+    "floor_time": 2,
+    "stop_time": 5
+  },
+  "elevators": [
+    {
+      "id": 0,
+      "floor": 1
+    },
+    {
+      "id": 1,
+      "floor": 10
+    },
+    {
+      "id": 2,
+      "floor": 20
+    }
+  ],
+  "requests": [
+    {
+      "id": 0,
+      "time": 9,
+      "origin": 9,
+      "dest": 12
+    },
+    {
+      "id": 1,
+      "time": 19,
+      "origin": 17,
+      "dest": 1
+    },
+    {
+      "id": 2,
+      "time": 26,
+      "origin": 8,
+      "dest": 2
+    },
+    {
+      "id": 3,
+      "time": 28,
+      "origin": 4,
+      "dest": 12
+    }
+  ],
+  "metadata": {
+    "scenario": "normal",
+    "seed": 5,
+    "n": 4,
+    "arrival_max": 10,
+    "peak_probability": 0.8
+  }
+}

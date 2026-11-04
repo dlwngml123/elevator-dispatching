@@ -11,14 +11,17 @@ python3 -m unittest experiment.test_c -v
 
 ## GitHub 브랜치 안내
 
-- `feature/part-c`: 최신 `main`에 C 담당 코드·테스트·이 설명서만 추가한 브랜치.
-  B 알고리즘은 별도 브랜치에 있으므로, 전체 실험은 B 파트를 통합한 뒤 실행한다.
-- `integration/abc`: 최신 A의 `main` + B의 `feature/part-b` + C를 통합한 실행·검증용 브랜치.
-  소규모 예시 결과와 PNG 그래프도 포함한다. 바로 실행하려면 이 브랜치를 사용한다.
-- 기존 `main`, `feature/part-b`의 커밋과 담당 파일은 그대로 유지한다.
+- `main`: A/B/C 1차 통합본이 반영된 공통 브랜치.
+- `feature/part-c`: 처음 C 담당 코드·테스트·이 설명서만 추가한 작업 브랜치.
+- `integration/abc`: 1차 통합 및 소규모 검증에 사용했고, `main`에 병합한 브랜치.
+- `feature/part-b-2`: B 담당자가 최종 확인 요청을 반영해 테스트를 보강한 브랜치.
+- `experiment/final-30-seeds`: `main`에 B의 추가 검증을 포함하고 normal/peak별
+  30개 seed를 측정한 결과 브랜치. Simulator·알고리즘·실험 실행 코드는 `main`과 동일하다.
 
 아래의 테스트·실험 명령은 **A/B/C가 모두 있는 통합본 기준**이다.
-현재 예시 결과는 seed 3개로 실행한 기능 검증이며, 30개 seed 최종 실험은 별도 진행한다.
+`results/demo.csv`는 seed 3개로 실행한 1차 기능 검증 결과다.
+최종 30개 seed 결과·실험 환경·코드 버전·재현 방법은
+[최종 실험 보고서](../results/final_30seeds/README.md)에 정리했다.
 
 ## 파일과 원본 기준
 
@@ -27,11 +30,13 @@ python3 -m unittest experiment.test_c -v
 - `experiment/run.py`: Nearest-Car, EWT Greedy, Local Search, Exhaustive 비교, CSV 저장.
 - `experiment/plot.py`: 시나리오별 평균/최대 대기시간, 실행 시간, optimality gap 그래프.
 - `experiment/test_c.py`: C 파트 검증 테스트 15개.
+- `experiment/report_final.py`: 저장된 최종 30개 seed 데이터 재검증·보고서·그래프 10장 재생성.
 
-통합본은 업로드된 `elevator-dispatching-main.zip`의 모든 파일에
+1차 통합본은 업로드된 `elevator-dispatching-main.zip`의 모든 파일에
 `elevator-dispatching-feature-part-b (1).zip`의 B 알고리즘 세 개와 `tests/`만 추가했다.
 A의 `simulator.py`, README, round-robin 및 B의 파일 내용은 변경하지 않았다.
 B ZIP의 구버전 `simulator.py`/README를 A 파일 위에 덮어쓰지 않았다.
+최종 실험 브랜치에는 이후 B가 `feature/part-b-2`에 올린 추가 테스트를 그대로 포함했다.
 
 `elevator-dispatching-C-only.zip`은 C 코드·테스트·이 설명서만 포함한다.
 팀 저장소에 적용할 때는 그 ZIP의 `algorithms/`, `experiment/`를 저장소 루트에 복사한다.
@@ -143,12 +148,15 @@ Local Search의 EWT 초기해 생성 시간은 함수 안에서 실행하므로 
 하나의 CSV에는 한 가지 공통 실험 환경만 넣는다. 다른 환경을 섞거나 동일 seed 행을
 중복하면 plot은 오류를 내어 잘못된 평균을 방지한다.
 
-## 실행 확인 결과
+## 1차 통합 시 실행 확인 결과
 
 - 기존 A/B 테스트: 21개 통과.
 - C 테스트: 15개 통과. 전수탐색 전체 후보/동률/빈 입력/입력 보존,
   생성 규칙/재현성, tick 유지, 탐색 한도, gap 0 처리, CSV·요약·입력 저장을 검증했다.
 - demo: 입력 18개, 결과 72행 중 정상 66행/전수탐색 skip 6행, 그래프 8장 생성.
 - A/B 파일은 ZIP 원본과 바이트 단위로 일치하는지 최종 확인했다.
+
+2026-11-04 최종 실험 전에는 B의 추가 테스트 6개를 포함해 **A/B 27개 + C 15개 =
+총 42개**가 통과했다. 처음 통합할 때의 36개와 구분한다.
 
 C 코드는 생성형 AI(Codex)의 도움으로 작성하고 위 실행 검증을 수행했다.
