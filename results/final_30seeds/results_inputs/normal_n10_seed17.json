@@ -1,0 +1,90 @@
+{
+  "config": {
+    "num_floors": 20,
+    "floor_time": 2,
+    "stop_time": 5
+  },
+  "elevators": [
+    {
+      "id": 0,
+      "floor": 1
+    },
+    {
+      "id": 1,
+      "floor": 10
+    },
+    {
+      "id": 2,
+      "floor": 20
+    }
+  ],
+  "requests": [
+    {
+      "id": 0,
+      "time": 8,
+      "origin": 14,
+      "dest": 10
+    },
+    {
+      "id": 1,
+      "time": 13,
+      "origin": 10,
+      "dest": 6
+    },
+    {
+      "id": 2,
+      "time": 21,
+      "origin": 9,
+      "dest": 4
+    },
+    {
+      "id": 3,
+      "time": 21,
+      "origin": 8,
+      "dest": 13
+    },
+    {
+      "id": 4,
+      "time": 27,
+      "origin": 9,
+      "dest": 17
+    },
+    {
+      "id": 5,
+      "time": 32,
+      "origin": 13,
+      "dest": 5
+    },
+    {
+      "id": 6,
+      "time": 40,
+      "origin": 2,
+      "dest": 5
+    },
+    {
+      "id": 7,
+      "time": 43,
+      "origin": 5,
+      "dest": 18
+    },
+    {
+      "id": 8,
+      "time": 51,
+      "origin": 7,
+      "dest": 11
+    },
+    {
+      "id": 9,
+      "time": 59,
+      "origin": 4,
+      "dest": 3
+    }
+  ],
+  "metadata": {
+    "scenario": "normal",
+    "seed": 17,
+    "n": 10,
+    "arrival_max": 10,
+    "peak_probability": 0.8
+  }
+}

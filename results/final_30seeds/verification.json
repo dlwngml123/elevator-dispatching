@@ -1,0 +1,19 @@
+{
+  "source_hashes_unchanged": true,
+  "input_instances_verified": 480,
+  "raw_rows_verified": 1920,
+  "assignments_rescored": 1740,
+  "exhaustive_exact_runs": 300,
+  "exhaustive_skipped_runs": 180,
+  "summary_rows_recomputed": 64,
+  "gap_status_counts": {
+    "available": 1200,
+    "baseline_unavailable": 720
+  },
+  "local_search_never_worse_than_ewt": true,
+  "test_results_before_benchmark": {
+    "ab_passed": 27,
+    "c_passed": 15,
+    "total_passed": 42
+  }
+}

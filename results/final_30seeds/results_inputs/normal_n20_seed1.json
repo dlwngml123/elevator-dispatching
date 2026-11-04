@@ -1,0 +1,150 @@
+{
+  "config": {
+    "num_floors": 20,
+    "floor_time": 2,
+    "stop_time": 5
+  },
+  "elevators": [
+    {
+      "id": 0,
+      "floor": 1
+    },
+    {
+      "id": 1,
+      "floor": 10
+    },
+    {
+      "id": 2,
+      "floor": 20
+    }
+  ],
+  "requests": [
+    {
+      "id": 0,
+      "time": 2,
+      "origin": 19,
+      "dest": 3
+    },
+    {
+      "id": 1,
+      "time": 6,
+      "origin": 4,
+      "dest": 16
+    },
+    {
+      "id": 2,
+      "time": 13,
+      "origin": 16,
+      "dest": 13
+    },
+    {
+      "id": 3,
+      "time": 16,
+      "origin": 4,
+      "dest": 16
+    },
+    {
+      "id": 4,
+      "time": 16,
+      "origin": 13,
+      "dest": 14
+    },
+    {
+      "id": 5,
+      "time": 25,
+      "origin": 1,
+      "dest": 15
+    },
+    {
+      "id": 6,
+      "time": 29,
+      "origin": 8,
+      "dest": 19
+    },
+    {
+      "id": 7,
+      "time": 30,
+      "origin": 11,
+      "dest": 1
+    },
+    {
+      "id": 8,
+      "time": 30,
+      "origin": 1,
+      "dest": 18
+    },
+    {
+      "id": 9,
+      "time": 30,
+      "origin": 13,
+      "dest": 7
+    },
+    {
+      "id": 10,
+      "time": 36,
+      "origin": 1,
+      "dest": 17
+    },
+    {
+      "id": 11,
+      "time": 39,
+      "origin": 15,
+      "dest": 16
+    },
+    {
+      "id": 12,
+      "time": 47,
+      "origin": 8,
+      "dest": 12
+    },
+    {
+      "id": 13,
+      "time": 50,
+      "origin": 8,
+      "dest": 15
+    },
+    {
+      "id": 14,
+      "time": 54,
+      "origin": 1,
+      "dest": 14
+    },
+    {
+      "id": 15,
+      "time": 62,
+      "origin": 4,
+      "dest": 6
+    },
+    {
+      "id": 16,
+      "time": 72,
+      "origin": 10,
+      "dest": 4
+    },
+    {
+      "id": 17,
+      "time": 77,
+      "origin": 17,
+      "dest": 14
+    },
+    {
+      "id": 18,
+      "time": 85,
+      "origin": 7,
+      "dest": 10
+    },
+    {
+      "id": 19,
+      "time": 89,
+      "origin": 19,
+      "dest": 16
+    }
+  ],
+  "metadata": {
+    "scenario": "normal",
+    "seed": 1,
+    "n": 20,
+    "arrival_max": 10,
+    "peak_probability": 0.8
+  }
+}
